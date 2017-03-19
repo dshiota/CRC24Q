@@ -46,7 +46,7 @@ size_t read_ems(FILE *fp, ems_t *ems)
 	size_t len = (size_t)0;
 	char line[LINE_BUF];
 
-  if (fp == (FILE*)NULL) {
+	if (fp == (FILE*)NULL) {
 		return len;
 	}
 
