@@ -115,10 +115,10 @@ int32_t main(int32_t argc, char** argv)
 							ems.msg_bytes[j] |= ((ems.msg_bytes[j+1] & 0xFC) >> 2);
 						}
 						ems.msg_bytes[28] <<= 6;
-						ems.msg_bytes[28] ^= (crc >> 18) & 0x3F;
-						ems.msg_bytes[29] ^= (crc >> 10) & 0xFF;
-						ems.msg_bytes[30] ^= (crc >> 2) & 0xFF;
-						ems.msg_bytes[31] ^= (crc & 0x03) << 6;
+						ems.msg_bytes[28] |= (crc >> 18) & 0x3F;
+						ems.msg_bytes[29] |= (crc >> 10) & 0xFF;
+						ems.msg_bytes[30] |= (crc >> 2) & 0xFF;
+						ems.msg_bytes[31] |= (crc & 0x03) << 6;
 						fprintf(stdout, "[brdc] %s\n", ems.msg);
 						fprintf(stdout, "[calc] ");
 						for (j = 0; j < 32; j++) {
